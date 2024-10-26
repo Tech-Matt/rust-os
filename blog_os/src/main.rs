@@ -1,5 +1,5 @@
-#![no_std]
-#![no_main]
+#![no_std] // don't link the Rust standard Library
+#![no_main] // disable all Rust levels entry points
 
 use core::panic::PanicInfo;
 
@@ -11,6 +11,9 @@ fn panic(_info: &PanicInfo) -> ! {
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    loop {}
+    // This function is the entry point, since the linker looks for a function
+	// named _start by default
+	loop {}
+	
 }
 
